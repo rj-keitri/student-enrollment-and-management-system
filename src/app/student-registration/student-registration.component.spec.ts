@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { StudentRegistrationComponent } from './student-registration.component';
+@Component({
+  selector: 'app-student-registration',
+  templateUrl: './student-registration.component.html',
+})
+export class StudentRegistrationComponent {
+  registrationForm: FormGroup;
 
-describe('StudentRegistrationComponent', () => {
-  let component: StudentRegistrationComponent;
-  let fixture: ComponentFixture<StudentRegistrationComponent>;
+  constructor(private fb: FormBuilder) {
+    this.registrationForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      age: ['', Validators.required],
+    });
+  }
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [StudentRegistrationComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(StudentRegistrationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  onSubmit() {
+    // Handle registration logic here
+    console.log(this.registrationForm.value);
+  }
+}
