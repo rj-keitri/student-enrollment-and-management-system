@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common'; // Import CommonModule
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  standalone: true
+  styleUrls: ['./login.component.css'], // Ensure you have this if you have styles
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule] // Include necessary modules here
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -23,4 +26,3 @@ export class LoginComponent {
     // Implement your login logic here
   }
 }
-
