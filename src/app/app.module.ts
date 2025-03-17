@@ -9,6 +9,9 @@ import { ClassManagementComponent } from 'class-management/class-management.comp
 import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 
 @NgModule({
+  imports: [
+    ReactiveFormsModule
+  ]
   declarations: [
     AppComponent,
     LoginComponent,
