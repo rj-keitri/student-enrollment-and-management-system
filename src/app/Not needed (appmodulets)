@@ -18,13 +18,14 @@ declarations: [
   LoginComponent,
   StudentRegistrationComponent,
   AssignStudentComponent,
-  ClassManagementComponent
+  ClassManagementComponent,
 ],
 
 
   imports: [
     BrowserModule,
-    AppRoutingModule // Ensure this is included
+    AppRoutingModule, // Ensure this is included
+    ReactiveFormsModule // Ensure this is included
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,3 +22,6 @@ const routes: Routes = [
   exports: [RouterModule] 
 })
 export class AppRoutingModule { }
+
+// Export the routes for use in main.ts
+export { routes };
