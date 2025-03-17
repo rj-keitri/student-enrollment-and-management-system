@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  standalone: true
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -15,8 +16,11 @@ export class LoginComponent {
     });
   }
 
+  ngOnInit(): void {}
+
   onSubmit() {
     console.log(this.loginForm.value);
     // Implement your login logic here
   }
 }
+
