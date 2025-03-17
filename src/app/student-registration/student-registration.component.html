@@ -1,12 +1,19 @@
 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    <label for="name">Name:</label>
-    <input id="name" formControlName="name" required>
-    
-    <label for="email">Email:</label>
-    <input id="email" formControlName="email" required>
-    
-    <label for="age">Age:</label>
-    <input id="age" formControlName="age" required>
-    
-    <button type="submit">Register</button>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" />
+      <div *ngIf="registrationForm.get('name').invalid && registrationForm.get('name').touched">
+        Name is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" />
+      <div *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched">
+        Valid email is required.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="registrationForm.invalid">Register</button>
   </form>
