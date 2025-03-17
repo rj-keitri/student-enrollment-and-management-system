@@ -1,22 +1,28 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Import CommonModule
-import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule if needed
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'], // Corrected to styleUrls
+  styleUrls: ['./home.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule] // Include CommonModule and ReactiveFormsModule for directives and forms
+  imports: [CommonModule, ReactiveFormsModule] // Include necessary modules
 })
 export class HomeComponent {
-  // Define properties
-  title: string = 'Welcome to the Home Component';
+  registrationForm: FormGroup;
 
-  // Define methods
-  constructor() {}
+  constructor(private fb: FormBuilder) {
+    this.registrationForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+    });
+  }
 
-  greet() {
-    console.log('Hello from HomeComponent!');
+  onSubmit() {
+    if (this.registrationForm.valid) {
+      console.log(this.registrationForm.value);
+      // Handle form submission logic here
+    }
   }
 }
