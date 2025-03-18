@@ -62,9 +62,6 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "historyApiFallback": true
-          }, 
           "configurations": {
             "production": {
               "buildTarget": "student-enrollment-and-management-system:build:production"
