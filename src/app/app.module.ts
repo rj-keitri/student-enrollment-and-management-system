@@ -6,7 +6,6 @@ import { AppComponent } from './app.component'; // Import your main app componen
 import { HomeComponent } from './home/home.component'; // Adjust the path as necessary
 import { StudentRegistrationComponent } from './student-registration/student-registration.component';
 
-
 @NgModule({
 
   declarations: [
