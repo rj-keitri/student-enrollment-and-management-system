@@ -17,8 +17,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent }, // Exact match for home
   { path: 'login', component: LoginComponent }, // Exact match for login
   { path: 'student-registration', component: StudentRegistrationComponent }, // Exact match for student registration
-  { path: '', redirectTo: '/student-registration', pathMatch: 'full' }, // Optional: Redirect to registration on root
-  { path: '**', redirectTo: '/student-registration' } // Optional: Catch-all route
   { path: 'assign-student', component: AssignStudentComponent }, // Exact match for assign student
   { path: 'class-management', component: ClassManagementComponent }, // Exact match for class management
   { path: '**', component: PageNotFoundComponent } // Wildcard route for 404
