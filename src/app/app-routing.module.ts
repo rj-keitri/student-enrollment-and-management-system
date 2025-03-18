@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: 'student-registration', component: StudentRegistrationComponent }, // Exact match for student registration
   { path: 'assign-student', component: AssignStudentComponent }, // Exact match for assign student
   { path: 'class-management', component: ClassManagementComponent }, // Exact match for class management
-  { path: '**', component: PageNotFoundComponent } // Wildcard route for 404
 ];
 
 @NgModule({
