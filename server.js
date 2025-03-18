@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 
 // Serve static files from the Angular app
-app.use(express.static(path.join(__dirname, 'dist/student-enrollment-and-management-system/browser')));
+app.use(express.static(path.join(__dirname, 'dist/student-enrollment-and-management-system')));
 
 // Redirect all requests to index.html
 app.get('*', (req, res) => {
