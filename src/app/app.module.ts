@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module'; // Import your routing module
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component'; // Import your main app component
 import { HomeComponent } from './home/home.component'; // Adjust the path as necessary
+
 
 @NgModule({
 
@@ -10,6 +12,8 @@ import { HomeComponent } from './home/home.component'; // Adjust the path as nec
     BrowserModule,
     AppRoutingModule // Include the routing module
   ],
-  providers: [],
+  providers: [
+      { provide: LocationStrategy, useClass: HashLocationStrategy } // Provide HashLocationStrategy
+  ],
 })
 export class AppModule { }

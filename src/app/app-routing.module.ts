@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+// Component Imports
 import { LoginComponent } from './login/login.component'; 
 import { HomeComponent } from './home/home.component'; 
 import { StudentRegistrationComponent } from './student-registration/student-registration.component'; 
@@ -8,13 +10,13 @@ import { ClassManagementComponent } from './class-management/class-management.co
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'; 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, 
-  { path: 'home', component: HomeComponent }, 
-  { path: 'login', component: LoginComponent }, 
-  { path: 'student-registration', component: StudentRegistrationComponent }, 
-  { path: 'assign-student', component: AssignStudentComponent }, 
-  { path: 'class-management', component: ClassManagementComponent }, 
-  { path: '**', component: PageNotFoundComponent } 
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect root to home
+  { path: 'home', component: HomeComponent }, // Exact match for home
+  { path: 'login', component: LoginComponent }, // Exact match for login
+  { path: 'student-registration', component: StudentRegistrationComponent }, // Exact match for student registration
+  { path: 'assign-student', component: AssignStudentComponent }, // Exact match for assign student
+  { path: 'class-management', component: ClassManagementComponent }, // Exact match for class management
+  { path: '**', component: PageNotFoundComponent } // Wildcard route for 404
 ];
 
 @NgModule({
