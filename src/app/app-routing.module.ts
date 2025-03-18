@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Component Imports
-import { LoginComponent } from './login/login.component'; 
 import { HomeComponent } from './home/home.component'; 
+import { LoginComponent } from './login/login.component'; 
 import { StudentRegistrationComponent } from './student-registration/student-registration.component'; 
 import { AssignStudentComponent } from './assign-student/assign-student.component'; 
 import { ClassManagementComponent } from './class-management/class-management.component'; 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'; 
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect root to home
@@ -21,7 +22,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)], 
-  exports: [RouterModule] 
+  exports: [RouterModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }] // Use HashLocationStrategy
 })
 export class AppRoutingModule { }
 
