@@ -12,10 +12,17 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 export class StudentRegistrationComponent implements OnInit {
   registrationForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.registrationForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+  constructor(private formBuilder: FormBuilder) {
+    this.registrationForm = this.formBuilder.group({
+      // name: ['', Validators.required],
+      // email: ['', [Validators.required, Validators.email]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      suffix: [''],
+      email: ['', [Validators.required, Validators.email]], // Email field added
+      grade: ['', Validators.required],
+      section: ['', Validators.required],
+      studentNumber: ['', [Validators.required, Validators.pattern('^[0-9]*$')]] // Ensure it's numeric
     });
   }
 
@@ -26,7 +33,9 @@ export class StudentRegistrationComponent implements OnInit {
   onSubmit() {
     if (this.registrationForm.valid) {
       console.log(this.registrationForm.value);
-      // Handle form submission
+      // Handle form submission, e.g., send data to a server
+    } else {
+      console.log('Form is invalid');
     }
   }
 }
