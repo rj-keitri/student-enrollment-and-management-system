@@ -14,7 +14,8 @@ import { StudentRegistrationComponent } from './student-registration/student-reg
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule // Include the routing module
+    AppRoutingModule, // Include the routing module
+    StudentRegistrationComponent // Import StudentRegistrationComponent directly
   ],
   providers: [
       { provide: LocationStrategy, useClass: HashLocationStrategy } // Provide HashLocationStrategy
