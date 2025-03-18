@@ -3,7 +3,15 @@ const path = require('path');
 const app = express();
 
 // Serve static files from the Angular app
-app.use(express.static(path.join(__dirname, 'dist/student-enrollment-and-management-system')));
+app.use(express.static(path.join(__dirname, 'dist/student-enrollment-and-management-system'), {
+    setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.js')) {
+          res.setHeader('Content-Type', 'application/javascript');
+        }
+      }
+}));
+
+
 
 // Redirect all requests to index.html
 app.get('*', (req, res) => {
@@ -12,5 +20,5 @@ app.get('*', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
