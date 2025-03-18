@@ -15,7 +15,7 @@ const routes: Routes = [
   // { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect root to home
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirect root to student registration
   { path: 'home', component: HomeComponent }, // Exact match for home
-  { path: '**', redirectTo: 'home' } // Fallback for undefined routes
+  { path: '**', redirectTo: 'home' }, // Fallback for undefined routes
   { path: 'login', component: LoginComponent }, // Exact match for login
   { path: 'student-registration', component: StudentRegistrationComponent }, // Exact match for student registration
   { path: 'assign-student', component: AssignStudentComponent }, // Exact match for assign student
