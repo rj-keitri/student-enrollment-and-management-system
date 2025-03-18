@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-student-registration',
   templateUrl: './student-registration.component.html',
+  standalone: true,
 })
 export class StudentRegistrationComponent {
   registrationForm: FormGroup;
