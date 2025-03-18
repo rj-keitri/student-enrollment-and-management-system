@@ -4,10 +4,14 @@ import { AppRoutingModule } from './app-routing.module'; // Import your routing 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component'; // Import your main app component
 import { HomeComponent } from './home/home.component'; // Adjust the path as necessary
+import { StudentRegistrationComponent } from './student-registration/student-registration.component';
 
 
 @NgModule({
 
+  declarations: [
+
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule // Include the routing module
