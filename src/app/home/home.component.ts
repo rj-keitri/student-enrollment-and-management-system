@@ -11,11 +11,13 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 })
 export class HomeComponent {
   registrationForm: FormGroup;
+  message: string = 'Welcome to the Home Component!';
 
   constructor(private fb: FormBuilder) {
     this.registrationForm = this.fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$')]],
+
     });
   }
 

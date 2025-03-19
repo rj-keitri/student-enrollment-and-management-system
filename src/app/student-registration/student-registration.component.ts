@@ -13,13 +13,12 @@ export class StudentRegistrationComponent implements OnInit {
   registrationForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
+    // Fixed FormGroup with correct syntax and no duplicate password field
     this.registrationForm = this.formBuilder.group({
-      // name: ['', Validators.required],
-      // email: ['', [Validators.required, Validators.email]],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       suffix: [''],
-      email: ['', [Validators.required, Validators.email]], // Email field added
+      password: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$')]],
       grade: ['', Validators.required],
       section: ['', Validators.required],
       studentNumber: ['', [Validators.required, Validators.pattern('^[0-9]*$')]] // Ensure it's numeric
@@ -27,13 +26,13 @@ export class StudentRegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Any additional initialization logic
+    console.log('Student Registration Component Loaded'); // Debug log
   }
 
   onSubmit() {
     if (this.registrationForm.valid) {
       console.log(this.registrationForm.value);
-      // Handle form submission, e.g., send data to a server
+      // Handle form submission logic
     } else {
       console.log('Form is invalid');
     }

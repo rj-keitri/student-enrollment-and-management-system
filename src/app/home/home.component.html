@@ -16,17 +16,17 @@
     </div>
 
     <div class="form-group">
-      <label for="email">Email:</label>
+      <label for="password">Password:</label>
       <input
-        id="email"
-        formControlName="email"
+        id="password"
+        formControlName="password"
         required
         class="form-control"
-        placeholder="Enter your email"
+        placeholder="Enter your password"
       />
-      <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="error-message">
-        <div *ngIf="registrationForm.get('email')?.errors?.['required']">Email is required.</div>
-        <div *ngIf="registrationForm.get('email')?.errors?.['email']">Invalid email format.</div>
+      <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" class="error-message">
+        <div *ngIf="registrationForm.get('password')?.errors?.['required']">password is required.</div>
+        <div *ngIf="registrationForm.get('password')?.errors?.['password']">Invalid password format.</div>
       </div>
     </div>
 
