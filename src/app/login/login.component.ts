@@ -1,28 +1,36 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'], // Ensure you have this if you have styles
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule] // Include necessary modules here
+  imports: [CommonModule, FormsModule], // Include FormsModule here
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginForm: FormGroup;
+  username: string = '';  // Declare username property
+  password: string = '';  // Declare password property
+  message: string = '';   // Declare message property
 
-  constructor(private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-  }
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {}
-
-  onSubmit() {
-    console.log(this.loginForm.value);
-    // Implement your login logic here
+  // Method for handling the login
+  login() {
+    this.http.post<any>('http://localhost:3000/api/login', {
+      username: this.username,
+      password: this.password
+    }).subscribe(
+      response => {
+        this.message = response.message; // On success
+      },
+      error => {
+        this.message = error.error.message; // On error
+      }
+    );
   }
 }
