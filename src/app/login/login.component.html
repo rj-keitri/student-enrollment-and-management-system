@@ -1,7 +1,7 @@
-<div>
+<div class="login-container">
   <h2>Login</h2>
-  <form (ngSubmit)="login()">
-    <div>
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <div class="form-group">
       <label for="username">Username:</label>
       <input
         type="text"
@@ -9,9 +9,14 @@
         [(ngModel)]="username"
         name="username"
         required
+        class="form-control"
+        placeholder="Enter your username"
       />
+      <div *ngIf="loginForm.submitted && !username" class="error-message">
+        Username is required.
+      </div>
     </div>
-    <div>
+    <div class="form-group">
       <label for="password">Password:</label>
       <input
         type="password"
@@ -19,9 +24,14 @@
         [(ngModel)]="password"
         name="password"
         required
+        class="form-control"
+        placeholder="Enter your password"
       />
+      <div *ngIf="loginForm.submitted && !password" class="error-message">
+        Password is required.
+      </div>
     </div>
-    <button type="submit">Login</button>
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
   </form>
   <p>{{ message }}</p>
 </div>

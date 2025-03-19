@@ -12,7 +12,7 @@ export class StudentRegistrationComponent {
   constructor(private fb: FormBuilder) {
     this.registrationForm = this.fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.password]],
       age: ['', Validators.required],
     });
   }

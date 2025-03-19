@@ -1,18 +1,36 @@
-<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    <div>
+<div class="registration-container">
+  <h2>Register</h2>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" #registrationFormDirective="ngForm">
+    <div class="form-group">
       <label for="name">Name:</label>
-      <input id="name" formControlName="name" />
-      <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched">
+      <input
+        id="name"
+        formControlName="name"
+        required
+        class="form-control"
+        placeholder="Enter your name"
+      />
+      <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched" class="error-message">
         Name is required.
       </div>
     </div>
-    <div>
+
+    <div class="form-group">
       <label for="email">Email:</label>
-      <input id="email" formControlName="email" />
-      <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+      <input
+        id="email"
+        formControlName="email"
+        required
+        class="form-control"
+        placeholder="Enter your email"
+      />
+      <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="error-message">
         <div *ngIf="registrationForm.get('email')?.errors?.['required']">Email is required.</div>
         <div *ngIf="registrationForm.get('email')?.errors?.['email']">Invalid email format.</div>
       </div>
     </div>
+
     <button type="submit" [disabled]="registrationForm.invalid">Register</button>
   </form>
+  <p>{{ message }}</p>
+</div>
