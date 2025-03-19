@@ -41,4 +41,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
+
+# Backend files (RJ-ENTRY)
 docker/mysql_data/mysql.sock
+node_modules
